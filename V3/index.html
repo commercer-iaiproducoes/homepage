@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="IAI Produções é um selo criativo que transforma ideias em mundos: livros, música, quadrinhos e RPG.">
+  <meta name="theme-color" content="#070708">
+  <meta property="og:title" content="IAI Produções | Não criamos produtos. Criamos mundos.">
+  <meta property="og:description" content="Uma porta para universos criativos em expansão.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/logo-producoes.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>IAI Produções | Não criamos produtos. Criamos mundos.</title>
+  <link rel="icon" href="assets/img/logo-producoes.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="nav-brand" href="#inicio">IAI</a>
+    <button class="menu-toggle" aria-label="Abrir navegação">Menu</button>
+    <nav>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#universos">Universos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: MAPA DO MULTIVERSO -->
+    <section class="hero" id="inicio">
+      <div class="hero-stars" id="hero-stars" aria-hidden="true"></div>
+
+      <div class="multiverse">
+        <svg class="constellation" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <line class="cline" x1="600" y1="350" x2="980" y2="160"/>
+          <line class="cline" x1="600" y1="350" x2="220"  y2="240"/>
+          <line class="cline" x1="600" y1="350" x2="170"  y2="520"/>
+          <line class="cline" x1="600" y1="350" x2="1010" y2="490"/>
+          <line class="cline" x1="600" y1="350" x2="630"  y2="640"/>
+          <line class="cline cline-dashed" x1="600" y1="350" x2="940" y2="340"/>
+        </svg>
+
+        <a class="planet-node p-music"  href="musica/"     style="--tx:82%;--ty:23%"><span class="orbit"></span><span class="core"></span><span class="label">Música</span></a>
+        <a class="planet-node p-comics" href="quadrinhos/" style="--tx:18%;--ty:34%"><span class="orbit"></span><span class="core"></span><span class="label">HQs</span></a>
+        <a class="planet-node p-books"  href="ebooks/"     style="--tx:14%;--ty:74%"><span class="orbit"></span><span class="core"></span><span class="label">Livros</span></a>
+        <a class="planet-node p-rpg"    href="rpg/"        style="--tx:84%;--ty:70%"><span class="orbit"></span><span class="core"></span><span class="label">RPG</span></a>
+        <a class="planet-node p-next"   href="#desconhecido" style="--tx:53%;--ty:91%"><span class="orbit"></span><span class="core"></span><span class="label">Próximo Mundo</span></a>
+        <a class="planet-node p-mystery" href="#desconhecido" style="--tx:78%;--ty:49%"><span class="orbit"></span><span class="core mystery"></span><span class="label">?</span></a>
+
+        <div class="center-iai">
+          <div class="center-glow"></div>
+          <img src="assets/img/logo-producoes.png" alt="IAI Produções" class="center-logo">
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <h1>Não criamos produtos.<br><span>Criamos mundos.</span></h1>
+        <a class="button" href="#universos">Explorar o multiverso <b>↓</b></a>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto wrap reveal" id="manifesto">
+      <div class="section-number">Manifesto</div>
+      <div class="manifesto-text">
+        <p>Toda grande história começa como uma ideia.</p>
+        <p>Algumas viram <em>livros.</em></p>
+        <p>Outras encontram uma <em>trilha sonora.</em></p>
+        <p>Algumas ganham <em>personagens.</em></p>
+        <p>Outras convidam você para <em>viver a aventura.</em></p>
+        <p>Na IAI Produções, acreditamos que uma única ideia pode dar origem a um <em>universo inteiro.</em></p>
+      </div>
+    </section>
+
+    <!-- UNIVERSOS: CONSTELAÇÃO VERTICAL -->
+    <section class="universes" id="universos">
+      <div class="section-number reveal">O mapa do multiverso</div>
+      <h2 class="section-title reveal">Escolha uma<br>estrela.</h2>
+      <p class="section-sub reveal">Cada estrela é um universo. Passe o mouse e ela se ilumina. Clique e entre.</p>
+
+      <div class="constellation-vertical">
+        <svg class="vline-svg" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 1000">
+          <defs>
+            <linearGradient id="vgrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#ff8b20"/>
+              <stop offset="33%" stop-color="#ee24cc"/>
+              <stop offset="66%" stop-color="#3386ff"/>
+              <stop offset="100%" stop-color="#39ff14"/>
+            </linearGradient>
+          </defs>
+          <line x1="50" y1="0" x2="50" y2="1000" stroke="url(#vgrad)" stroke-width="1.5" stroke-dasharray="4 8"/>
+        </svg>
+
+        <a class="cstar reveal" href="ebooks/" style="--c:#ff8b20">
+          <span class="cstar-dot"></span>
+          <div class="cstar-img">
+            <img src="assets/img/logo-fantasy.png" alt="IAI Fantasy">
+          </div>
+          <div class="cstar-content">
+            <span class="cstar-eyebrow">Universo 01</span>
+            <h3>Ebooks &amp; Livros</h3>
+            <p>Conhecimento, ideias e novas perspectivas.</p>
+            <span class="cstar-arrow">Entrar <b>→</b></span>
+          </div>
+        </a>
+
+        <a class="cstar reveal" href="musica/" style="--c:#ee24cc">
+          <span class="cstar-dot"></span>
+          <div class="cstar-img">
+            <img src="assets/img/logo-cltsia.png" alt="CLTSIA">
+          </div>
+          <div class="cstar-content">
+            <span class="cstar-eyebrow">Universo 02</span>
+            <h3>CLT &amp; Rock and Roll</h3>
+            <p>Rock, trabalho e vida real. Aqui o CLT tem trilha sonora.</p>
+            <span class="cstar-arrow">Entrar <b>→</b></span>
+          </div>
+        </a>
+
+        <a class="cstar reveal" href="quadrinhos/" style="--c:#3386ff">
+          <span class="cstar-dot"></span>
+          <div class="cstar-img">
+            <img src="assets/img/logo-comics.png" alt="IAI Comics">
+          </div>
+          <div class="cstar-content">
+            <span class="cstar-eyebrow">Universo 03</span>
+            <h3>HQs &amp; RPG</h3>
+            <p>Histórias que ganham vida. Mundos onde você participa.</p>
+            <span class="cstar-arrow">Entrar <b>→</b></span>
+          </div>
+        </a>
+
+        <a class="cstar reveal cstar-desconhecido" href="#desconhecido" style="--c:#39ff14">
+          <span class="cstar-dot"></span>
+          <div class="cstar-img">
+            <img src="assets/img/logo-producoes-clear.png" alt="IAI Produções">
+          </div>
+          <div class="cstar-content">
+            <span class="cstar-eyebrow">Universo 04</span>
+            <h3>O Desconhecido</h3>
+            <p>Nem todo universo já foi descoberto.</p>
+            <span class="cstar-arrow">Explorar <b>→</b></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- O DESCONHECIDO -->
+    <section class="desconhecido" id="desconhecido">
+      <div class="wrap desconhecido-inner reveal">
+        <div class="dnoise" aria-hidden="true"></div>
+        <div class="dhalo"></div>
+        <div class="dsigil">?</div>
+        <span class="section-number">Universo ainda não catalogado</span>
+        <h2>O Desconhecido</h2>
+        <p>Nem todo universo já foi descoberto.</p>
+        <span class="dtag">Próximo mundo em formação</span>
+      </div>
+    </section>
+
+    <!-- SOBRE: COMPOSIÇÃO EDITORIAL -->
+    <section class="about-editorial" id="sobre">
+      <div class="editorial-line"></div>
+      <span class="section-number reveal">Sobre</span>
+      <h2 class="editorial-intro reveal">
+        Nem toda ideia nasce<br>
+        para ser apenas um livro.
+      </h2>
+
+      <div class="editorial-line"></div>
+      <div class="editorial-grid">
+        <p class="reveal">Algumas ideias cabem em poucas páginas.</p>
+        <p class="reveal">Outras pedem uma trilha sonora.</p>
+        <p class="reveal">Algumas precisam de personagens, mapas, regras ou mundos inteiros.</p>
+      </div>
+
+      <div class="editorial-line"></div>
+      <p class="editorial-block reveal">
+        A IAI Produções nasceu da convicção de que uma boa ideia não deve ser limitada pelo formato em que surgiu.
+      </p>
+
+      <div class="editorial-line"></div>
+      <div class="editorial-list reveal">
+        <p>Não somos apenas uma editora.</p>
+        <p>Não somos apenas um estúdio.</p>
+        <p class="emphasis">Somos um selo criativo dedicado a transformar imaginação em experiências.</p>
+      </div>
+
+      <div class="editorial-line"></div>
+      <p class="editorial-final reveal">
+        Não criamos produtos.<br>
+        <em>Criamos mundos.</em>
+      </p>
+      <div class="editorial-line"></div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="wrap footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-brand">IAI<br>PRODUÇÕES</div>
+        <p>Não criamos produtos.<br>Criamos mundos.</p>
+      </div>
+      <div>
+        <h4>Manifesto</h4>
+        <a href="#manifesto">O que acreditamos</a>
+        <a href="#sobre">Nossa história</a>
+      </div>
+      <div>
+        <h4>Projetos</h4>
+        <a href="ebooks/">Ebooks &amp; Livros</a>
+        <a href="musica/">Música</a>
+        <a href="quadrinhos/">Quadrinhos</a>
+        <a href="rpg/">RPG</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+        <a href="mailto:contato@iai.producoes">contato@iai.producoes</a>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p class="newsletter-blurb">Receba novos mundos antes de todo mundo.</p>
+        <form class="newsletter" onsubmit="event.preventDefault();this.querySelector('button').textContent='Inscrito ✓';this.querySelector('input').value=''">
+          <input type="email" required placeholder="seu@email.com" aria-label="Email para newsletter">
+          <button type="submit">Assinar</button>
+        </form>
+      </div>
+    </div>
+    <div class="wrap copyright">© 2026 IAI Produções — Mapa do Multiverso em constante expansão.</div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
