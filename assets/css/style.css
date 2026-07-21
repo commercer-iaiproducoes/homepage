@@ -1,0 +1,856 @@
+/* ============================================================
+   IAI PRODUÇÕES — Mapa do Multiverso
+   ============================================================ */
+
+:root {
+  --bg: #06060a;
+  --text: #f4f4f7;
+  --muted: #9a9aa6;
+  --line: rgba(255, 255, 255, .12);
+  --pink: #e929cf;
+  --orange: #ff8b20;
+  --rose: #ee24cc;
+  --blue: #3386ff;
+  --purple: #a145e9;
+  --neon: #39ff14;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg) url('../img/bg-universo-02.jpg') center/cover no-repeat fixed;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(233, 41, 207, .22), transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(57, 100, 255, .22), transparent 55%),
+    linear-gradient(180deg, rgba(6, 6, 10, .55) 0%, rgba(6, 6, 10, .78) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+a { color: inherit; text-decoration: none; }
+em { font-style: normal; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap {
+  max-width: 1180px;
+  margin: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+section { padding-top: 120px; padding-bottom: 120px; }
+
+.section-number,
+.eyebrow {
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 22px;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  height: 72px;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(28px, calc((100vw - 1124px) / 2));
+  transition: .35s;
+}
+.nav.scrolled {
+  height: 60px;
+  background: rgba(6, 6, 10, .78);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand,
+.footer-brand {
+  font: 700 1.3rem/.85 "Space Grotesk";
+  letter-spacing: -.08em;
+  color: #fff;
+}
+.nav nav {
+  display: flex;
+  gap: 28px;
+  color: #c6c6cc;
+  font-size: .8rem;
+  letter-spacing: .04em;
+}
+.nav nav a { transition: color .2s; }
+.nav nav a:hover { color: #fff; }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ============================================================
+   HERO — MAPA DO MULTIVERSO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 60px;
+}
+
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-stars i {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: .5;
+  box-shadow: 0 0 6px rgba(255, 255, 255, .8);
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: .2; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.4); }
+}
+
+.multiverse {
+  position: relative;
+  width: min(1100px, 92vw);
+  aspect-ratio: 12 / 7;
+  z-index: 2;
+}
+
+.constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.cline {
+  stroke: rgba(233, 41, 207, .35);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 6;
+  filter: drop-shadow(0 0 4px rgba(233, 41, 207, .45));
+}
+.cline-dashed {
+  stroke: rgba(160, 100, 255, .4);
+  stroke-dasharray: 2 8;
+}
+
+/* NODES DOS UNIVERSOS */
+.planet-node {
+  position: absolute;
+  left: var(--tx);
+  top: var(--ty);
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  transition: transform .35s ease;
+}
+.planet-node .core {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c, #fff);
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 12px var(--c, #fff),
+    0 0 26px var(--c, #fff),
+    0 0 50px var(--c, #fff);
+  transition: all .35s ease;
+  z-index: 2;
+}
+.planet-node .core.mystery {
+  background: rgba(255, 255, 255, .6);
+  box-shadow: 0 0 8px rgba(255, 255, 255, .4);
+  width: 10px;
+  height: 10px;
+}
+.planet-node .orbit {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(35deg);
+  transition: all .35s ease;
+}
+.planet-node .label {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .75);
+  white-space: nowrap;
+  transition: color .25s, text-shadow .25s;
+}
+.planet-node:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+.planet-node:hover .core {
+  width: 22px;
+  height: 22px;
+  box-shadow:
+    0 0 18px var(--c, #fff),
+    0 0 44px var(--c, #fff),
+    0 0 88px var(--c, #fff);
+}
+.planet-node:hover .orbit {
+  width: 70px;
+  height: 70px;
+  border-color: var(--c, #fff);
+  box-shadow: 0 0 26px var(--c, #fff);
+}
+.planet-node:hover .label {
+  color: #fff;
+  text-shadow: 0 0 14px var(--c, #fff);
+}
+
+.p-music  { --c: var(--rose); }
+.p-comics { --c: var(--blue); }
+.p-books  { --c: var(--orange); }
+.p-rpg    { --c: var(--purple); }
+.p-next   { --c: var(--neon); }
+.p-mystery{ --c: rgba(255, 255, 255, .7); }
+
+.center-iai {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+.center-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(233, 41, 207, .35), transparent 60%);
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: pulse 5s ease-in-out infinite;
+}
+.center-logo {
+  position: relative;
+  width: 200px;
+  filter: drop-shadow(0 12px 36px rgba(0, 0, 0, .8)) drop-shadow(0 0 50px rgba(233, 41, 207, .35));
+  animation: float 7s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    opacity: .8; }
+  50%      { transform: scale(1.1);  opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.hero-cta {
+  text-align: center;
+  margin-top: 36px;
+  z-index: 2;
+  position: relative;
+}
+.hero-cta h1 {
+  font: 600 clamp(2.4rem, 5.4vw, 4.8rem)/.95 "Space Grotesk";
+  letter-spacing: -.06em;
+  margin: 0 0 28px;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, .8);
+}
+.hero-cta h1 span {
+  background: linear-gradient(100deg, #f9f9fa 20%, #e62cd6 63%, #ffc51d 100%);
+  color: transparent;
+  background-clip: text;
+}
+
+.button {
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .06);
+  padding: 14px 22px;
+  font-size: .86rem;
+  display: inline-flex;
+  gap: 14px;
+  backdrop-filter: blur(12px);
+  transition: .25s;
+  cursor: pointer;
+  color: inherit;
+}
+.button:hover {
+  color: #090909;
+  background: #fff;
+  transform: translateY(-3px);
+}
+.button b { font-size: 1.1rem; }
+
+/* ============================================================
+   MANIFESTO
+   ============================================================ */
+.manifesto {
+  display: grid;
+  grid-template-columns: .45fr 1.55fr;
+  gap: 45px;
+  border-bottom: 1px solid var(--line);
+}
+.manifesto-text {
+  font: 400 clamp(1.45rem, 3.1vw, 2.85rem)/1.24 "Space Grotesk";
+  letter-spacing: -.04em;
+  color: #ededf0;
+}
+.manifesto-text p { margin: 0 0 28px; }
+.manifesto-text em {
+  background: linear-gradient(110deg, #ea29d1, #f9a82b);
+  color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   UNIVERSOS — CONSTELAÇÃO VERTICAL
+   ============================================================ */
+.universes {
+  position: relative;
+}
+.section-title {
+  font: 600 clamp(2.4rem, 5.4vw, 5.2rem)/.95 "Space Grotesk";
+  letter-spacing: -.06em;
+  margin: 0 0 24px;
+  max-width: 900px;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 70px;
+  max-width: 540px;
+}
+
+.constellation-vertical {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 0 30px 120px;
+}
+.vline-svg {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  z-index: 0;
+}
+
+.cstar {
+  --c: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 28px 24px;
+  margin-bottom: 22px;
+  background: linear-gradient(145deg, rgba(15, 15, 22, .7), rgba(8, 8, 14, .55));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  transition: all .35s ease;
+  z-index: 1;
+}
+.cstar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(145deg, var(--c), transparent 55%);
+  opacity: 0;
+  transition: opacity .35s;
+  pointer-events: none;
+}
+.cstar:hover {
+  transform: translateX(10px);
+  border-color: var(--c);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .5), 0 0 30px color-mix(in srgb, var(--c) 25%, transparent);
+}
+.cstar:hover::before { opacity: .12; }
+
+.cstar-img {
+  flex: 0 0 auto;
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 14%, transparent), transparent 70%);
+  position: relative;
+  overflow: hidden;
+  transition: all .35s;
+}
+.cstar-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--c) 30%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity .35s;
+  pointer-events: none;
+}
+.cstar:hover .cstar-img::after { opacity: 1; }
+.cstar-img img {
+  max-width: 88%;
+  max-height: 88%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, .6));
+  transition: transform .35s ease;
+}
+.cstar:hover .cstar-img img {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.cstar-desconhecido {
+  background: linear-gradient(145deg, rgba(15, 25, 18, .7), rgba(8, 14, 10, .55));
+  box-shadow: 0 0 0 1px rgba(57, 255, 20, .15) inset, 0 0 30px rgba(57, 255, 20, .08);
+}
+.cstar-desconhecido:hover {
+  box-shadow: 0 0 0 1px rgba(57, 255, 20, .55) inset, 0 18px 50px rgba(57, 255, 20, .25), 0 0 50px rgba(57, 255, 20, .25);
+}
+
+.cstar-dot {
+  position: absolute;
+  left: -87px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow:
+    0 0 14px var(--c),
+    0 0 30px var(--c),
+    inset 0 0 10px rgba(255, 255, 255, .8);
+  transition: all .35s;
+}
+.cstar:hover .cstar-dot {
+  transform: translateY(-50%) scale(1.4);
+  box-shadow: 0 0 24px var(--c), 0 0 50px var(--c);
+}
+.cstar-dot::before {
+  content: "★";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, .8);
+}
+
+.cstar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.cstar-eyebrow {
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--c);
+  font-weight: 600;
+}
+.cstar h3 {
+  font: 500 clamp(1.4rem, 2.6vw, 2rem) "Space Grotesk";
+  letter-spacing: -.03em;
+  margin: 0;
+  color: #fff;
+}
+.cstar p {
+  font-size: .92rem;
+  color: #c2c2cc;
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+.cstar-arrow {
+  font-size: .85rem;
+  color: var(--c);
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap .25s;
+}
+.cstar-arrow b { font-size: 1.1rem; }
+.cstar:hover .cstar-arrow { gap: 14px; }
+
+/* ============================================================
+   O DESCONHECIDO
+   ============================================================ */
+.desconhecido {
+  position: relative;
+  padding: 160px 0;
+  background:
+    radial-gradient(ellipse at center, rgba(120, 30, 200, .25), transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(233, 41, 207, .15), transparent 50%),
+    rgba(6, 6, 10, .55);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.desconhecido-inner {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.dnoise {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, .07) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: .5;
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+.dhalo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(160, 100, 255, .35), transparent 60%);
+  filter: blur(40px);
+  animation: dh-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes dh-pulse {
+  0%, 100% { opacity: .6; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;  transform: translate(-50%, -50%) scale(1.15); }
+}
+.dsigil {
+  font: 300 8rem "Cormorant Garamond", serif;
+  color: rgba(255, 255, 255, .85);
+  margin: 0 auto 20px;
+  text-shadow: 0 0 40px rgba(160, 100, 255, .8), 0 0 80px rgba(233, 41, 207, .4);
+  animation: dh-flicker 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+@keyframes dh-flicker {
+  0%, 100% { opacity: 1; }
+  48%      { opacity: 1; }
+  49%      { opacity: .4; }
+  50%      { opacity: 1; }
+  72%      { opacity: 1; }
+  73%      { opacity: .6; }
+  74%      { opacity: 1; }
+}
+.desconhecido h2 {
+  font: 500 clamp(2.4rem, 5vw, 4.5rem) "Cormorant Garamond", serif;
+  letter-spacing: -.02em;
+  margin: 0 0 18px;
+  color: #fff;
+}
+.desconhecido p {
+  font: 300 italic 1.25rem "Cormorant Garamond", serif;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+.dtag {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(160, 100, 255, .9);
+  padding: 8px 18px;
+  border: 1px solid rgba(160, 100, 255, .4);
+  border-radius: 30px;
+  background: rgba(160, 100, 255, .08);
+}
+
+/* ============================================================
+   SOBRE — COMPOSIÇÃO EDITORIAL
+   ============================================================ */
+.about-editorial {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 120px 28px;
+  text-align: center;
+}
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+  margin: 50px 0;
+  position: relative;
+}
+.editorial-line::before {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  color: rgba(255, 255, 255, .55);
+  font-size: .9rem;
+  padding: 0 14px;
+}
+.about-editorial .section-number {
+  margin-bottom: 24px;
+}
+.editorial-intro {
+  font: 400 italic clamp(1.8rem, 3.8vw, 3.4rem)/1.15 "Cormorant Garamond", serif;
+  letter-spacing: -.01em;
+  margin: 0 0 0;
+  color: #fff;
+}
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  text-align: center;
+}
+.editorial-grid p {
+  font: 300 1.1rem/1.5 "Cormorant Garamond", serif;
+  color: #d2d2da;
+  margin: 0;
+  font-style: italic;
+}
+.editorial-block {
+  font: 400 italic clamp(1.3rem, 2.4vw, 1.8rem)/1.4 "Cormorant Garamond", serif;
+  color: #e5e5ec;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.editorial-list p {
+  font: 300 1.1rem/1.6 "Cormorant Garamond", serif;
+  color: #cfcfd8;
+  margin: 0 0 8px;
+  font-style: italic;
+}
+.editorial-list .emphasis {
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  margin-top: 14px;
+  font-size: 1.2rem;
+}
+.editorial-final {
+  font: 500 clamp(2rem, 4.2vw, 3.6rem)/1.1 "Space Grotesk", sans-serif;
+  letter-spacing: -.05em;
+  margin: 0;
+  color: #fff;
+}
+.editorial-final em {
+  background: linear-gradient(110deg, #ea29d1, #f9a82b);
+  color: transparent;
+  background-clip: text;
+  font-style: normal;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 80px 0 30px;
+  background: rgba(6, 6, 10, .88);
+  backdrop-filter: blur(12px);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr;
+  gap: 36px;
+}
+.footer-brand-col .footer-brand {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+}
+.footer-grid p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: .85rem;
+  margin: 0;
+}
+.footer-grid h4 {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.footer-grid a {
+  font-size: .85rem;
+  display: block;
+  margin: 8px 0;
+  color: #c4c4cc;
+  transition: color .2s;
+}
+.footer-grid a:hover { color: var(--pink); }
+
+.newsletter-blurb {
+  font-size: .8rem !important;
+  margin-bottom: 12px !important;
+  color: var(--muted);
+}
+.newsletter {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .04);
+  color: #fff;
+  font: inherit;
+  font-size: .82rem;
+  transition: border-color .2s;
+}
+.newsletter input::placeholder { color: var(--muted); }
+.newsletter input:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+.newsletter button {
+  padding: 10px 16px;
+  background: var(--pink);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font: 600 .82rem "Inter", sans-serif;
+  cursor: pointer;
+  transition: .2s;
+  white-space: nowrap;
+}
+.newsletter button:hover {
+  background: #ff45d8;
+  transform: translateY(-2px);
+}
+
+.copyright {
+  border-top: 1px solid var(--line);
+  margin-top: 60px;
+  padding-top: 22px;
+  font-size: .72rem;
+  color: #6c6c78;
+  text-align: center;
+  letter-spacing: .04em;
+}
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 980px) {
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .footer-brand-col { grid-column: 1 / -1; }
+  .editorial-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 760px) {
+  .nav nav { display: none; }
+  .menu-toggle { display: block; cursor: pointer; }
+  .nav.open { background: #0a0a10; }
+  .nav.open nav {
+    display: flex;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: #0a0a10;
+    padding: 20px 28px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--line);
+  }
+  section { padding-top: 80px; padding-bottom: 80px; }
+  .manifesto { grid-template-columns: 1fr; gap: 22px; }
+  .hero { padding-top: 100px; }
+  .multiverse { width: 96vw; }
+  .planet-node { width: 78px; height: 78px; }
+  .planet-node .label { font-size: .65rem; }
+  .center-iai { width: 130px; height: 130px; }
+  .center-logo { width: 120px; }
+  .constellation-vertical { padding-left: 60px; }
+  .vline-svg { left: 25px; }
+  .cstar-dot { left: -50px; width: 22px; height: 22px; }
+  .cstar { flex-direction: row; align-items: center; gap: 18px; padding: 20px 18px; }
+  .cstar-img { width: 80px; height: 80px; }
+  .cstar h3 { font-size: 1.25rem; }
+  .cstar p { font-size: .85rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .dsigil { font-size: 5rem; }
+  .desconhecido { padding: 100px 0; }
+  .about-editorial { padding: 80px 24px; }
+  .editorial-line { margin: 36px 0; }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding-left: 20px; padding-right: 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .newsletter { flex-direction: column; }
+  .hero-cta h1 { font-size: 2.4rem; }
+  .section-title { font-size: 2.4rem; }
+  .editorial-intro { font-size: 1.6rem; }
+  .editorial-final { font-size: 1.8rem; }
+}
